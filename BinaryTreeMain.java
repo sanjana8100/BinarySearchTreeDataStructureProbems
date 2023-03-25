@@ -21,6 +21,7 @@ public class BinaryTreeMain {
         bst.add(16);
         bst.add(63);
 
-        bst.display();
+        bst.search(bst.root,65);
+        bst.display(bst.root);
     }
 }

@@ -27,15 +27,29 @@ public class BinaryTree<T extends Comparable<T>> {
         }
     }
 
-    public void traverse(INode<T> currentPointer){
+    public void display(INode<T> currentPointer){
         if (currentPointer == null)
             return;
-        traverse(currentPointer.nextL);
+        display(currentPointer.nextL);
         System.out.print(currentPointer.data+" ");
-        traverse(currentPointer.nextR);
+        display(currentPointer.nextR);
     }
 
-    public void display(){
-        traverse(root);
+    public void search(INode<T> currentPointer,T data){
+        while(currentPointer!=null) {
+            int value= data.compareTo(currentPointer.data);
+            switch (value){
+                case -1:
+                    currentPointer = currentPointer.nextL;
+                    break;
+                case 1:
+                    currentPointer = currentPointer.nextR;
+                    break;
+                default:
+                    System.out.println("Element Found!!!");
+                    return;
+            }
+        }
+        System.out.println("Element Not Found!!!");
     }
 }
